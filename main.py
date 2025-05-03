@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import random
-
 import numpy as np
 import pygame
 from pygame.locals import *
@@ -22,7 +20,7 @@ class MainWindow:
 
     mouse_sensitivity = 1 / 100.0
 
-    rotation_speed = np.pi/4
+    rotation_speed = np.pi/16
 
     def __init__(self):
 
@@ -30,11 +28,11 @@ class MainWindow:
 
         model = stl.load("assets/untitled.stl")
 
-        print(len(model.triangles))
         scene = [
-            model.set_center(np.array([0.0, 0.0, 5.0])).scale(2).rotate(np.array([0.0, 0.0, np.pi / 2])).flip(y=True)
+            model.set_center(np.array([0.0, 0.0, 5.0])).scale(0.1).rotate(np.array([0.0, 0.0, np.pi / 2])).flip(y=True)
         ]
 
+        print(len(model.triangles))
         self.renderer = Renderer(camera, scene)
 
         self.camera = self.renderer.camera
