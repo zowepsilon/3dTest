@@ -149,7 +149,7 @@ class Viewport:
         if dotp == 0.0:
             return self.uv_to_pixel(self._project_camera_space_point(onscreen)), self.uv_to_pixel(
                 self._project_camera_space_point(offscreen))
-        # thanks ChatGPT
+
         # computes the intersection bewteen the line and the camera plane
         intersection = onscreen + (offscreen - onscreen) * (
                 np.dot(plane_normal, plane_point) - np.dot(plane_normal, onscreen)) / dotp
